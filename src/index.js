@@ -125,6 +125,7 @@ app.get('/message/:email', (request, response) => {
 });
 
 // Comentário teste
+console.log('Hello, Express!')
 
 app.listen(3700, () => {
     console.log('Servidor funcionando na porta 3700!')
