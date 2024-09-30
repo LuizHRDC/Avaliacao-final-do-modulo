@@ -124,6 +124,7 @@ app.get('/message/:email', (request, response) => {
     });
 });
 
+// Comentário teste
 
 app.listen(3700, () => {
     console.log('Servidor funcionando na porta 3700!')
