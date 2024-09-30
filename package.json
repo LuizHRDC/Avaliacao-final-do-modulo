@@ -1,0 +1,20 @@
+{
+  "name": "avaliacao-final-do-modulo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index"
+  },
+  "author": "Luiz",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.0",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "sucrase": "^3.35.0"
+  }
+}
