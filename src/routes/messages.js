@@ -38,7 +38,7 @@ router.get('/message/:email', readMessages, (req, res) => {
     }
 });
 
-router.put('/:id', updateMessages, (req, res) => {
+router.put('/message/:id', updateMessages, (req, res) => {
     const { id } = req.params;
     const { title, description } = req.body;
 
@@ -53,7 +53,7 @@ router.put('/:id', updateMessages, (req, res) => {
     });
 });
 
-router.delete('/:id', deleteMessages, (req, res) => {
+router.delete('/message/:id', deleteMessages, (req, res) => {
 
     res.status(200).json({ message: "Mensagem apagada com sucesso." });
 });

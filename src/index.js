@@ -6,14 +6,14 @@ import messagesRouter from './routes/messages'
 import welcomeRouter from './routes/welcome'
 
 const app = express();
-const PORT = 3800;
+const PORT = 3400;
 
 app.use(cors())
 app.use(express.json())
 
 app.use('/', welcomeRouter)
-app.use('/users', usersRouter);
-app.use('/messages', messagesRouter)
+app.use('/', usersRouter);
+app.use('/', messagesRouter)
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`)
