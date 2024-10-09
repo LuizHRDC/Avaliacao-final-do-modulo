@@ -2,6 +2,10 @@
 
 Este projeto é uma aplicação back-end desenvolvida com Node.js e Express. Fornece rotas para funcionalidades de cadastro de usuários e gerenciamento de mensagens (CRUD).
 
+## Links
+- Render: https://avaliacao-final-do-modulo.onrender.com/
+- Documentação Postman: https://documenter.getpostman.com/view/38441261/2sAXxMgDfn
+
 ## Tecnologias empregadas
 - **Node.js**
 - **Express**
