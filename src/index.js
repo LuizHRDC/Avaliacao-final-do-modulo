@@ -6,7 +6,7 @@ import messagesRouter from './routes/messages'
 import welcomeRouter from './routes/welcome'
 
 const app = express();
-const PORT = 3400;
+const PORT = 3500;
 
 app.use(cors())
 app.use(express.json())

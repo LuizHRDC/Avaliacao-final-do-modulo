@@ -6,14 +6,14 @@ import { messageRegistration, readMessages, updateMessages, deleteMessages } fro
 const router = express.Router();
 export const messages = [];
 
-router.post('/message', messageRegistration, (req, res) => {
-    const { email, title, description } = req.body;
+router.post('/message', /* messageRegistration, */ (req, res) => {
+    const { title, description, userId } = req.body;
 
     const newMessage = {
-        id: uuidv4(),
+        id: uuidv4(), // Gerar um id único
         title,
         description,
-        email
+        userId
     };
 
     messages.push(newMessage);
@@ -23,6 +23,8 @@ router.post('/message', messageRegistration, (req, res) => {
         note: newMessage
     });
 });
+
+
 
 router.get('/messages/:email', (request, response) => {
 
@@ -94,5 +96,19 @@ router.delete('/message/:id', deleteMessages, (req, res) => {
 
     res.status(200).json({ message: "Mensagem apagada com sucesso." });
 });
+
+router.get('/details/:id', (request, response) => {
+    const { id } = request.params
+
+    const note = messages.find(note => note.id === id)
+
+    if (!note) {
+        return response.status(404).json({
+            message: 'Recado não encontrado.'
+        })
+    }
+
+    response.status(200).json(note)
+})
 
 export default router;

@@ -2,11 +2,11 @@ import { messages } from '../routes/messages'
 import { users } from '../routes/users'
 
 export function messageRegistration(req, res, next) {
-    const { email, title, description } = req.body;
+    const { title, description, userId } = req.body;
 
-    const existingUser = users.find(user => user.email === email);
+    const existingUser = users.find(user => user.id === userId); // Supondo que você tenha um id de usuário
     if (!existingUser) {
-        return res.status(404).json({ error: "Email não encontrado, verifique ou crie uma conta." });
+        return res.status(404).json({ error: "Usuário não encontrado, verifique ou crie uma conta." });
     }
 
     if (!title) {
@@ -19,6 +19,7 @@ export function messageRegistration(req, res, next) {
 
     next();
 }
+
 
 export function readMessages(req, res, next) {
     const { email } = req.params;

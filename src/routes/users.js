@@ -25,7 +25,7 @@ router.post('/signup', validateUserRegistration, async (req, res) => {
     });
 });
 
-router.post('/login', validateUserLogin, async (req, res) => {
+router.post('/login', /* validateUserLogin, */ async (req, res) => {
     const { email, password } = req.body;
 
     const existingUser = users.find(user => user.email === email);
@@ -35,7 +35,12 @@ router.post('/login', validateUserLogin, async (req, res) => {
         return res.status(400).json({ error: "Senha incorreta, tente novamente." });
     }
 
-    res.status(200).json({ message: `Seja bem-vindo ${existingUser.name}! Pessoa usuária logada com sucesso!` });
+    res.status(200).json({
+        message: `Seja bem-vindo ${existingUser.name}! Pessoa usuária logada com sucesso!`,
+        userId: (existingUser.id), 
+        email: (existingUser.email)
+      });
+      
 });
 
 export default router;
