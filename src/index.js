@@ -1,32 +1,40 @@
-import express from 'express';
-import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import express from 'express'
 
-import usersRouter from './routes/users.js';
-import messagesRouter from './routes/messages.js';
+import cors from 'cors'
 
-// Ajuste para __dirname no ES Module
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+
+import usersRouter from './routes/users'
+
+import messagesRouter from './routes/messages'
+
+import welcomeRouter from './routes/welcome'
+
+
 
 const app = express();
-const PORT = process.env.PORT || 3500;
 
-app.use(cors());
-app.use(express.json());
 
-// Servir arquivos estáticos (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, 'src')));
+const PORT = 3400;
 
-// Rota principal para exibir o index.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'index.html'));
-});
+
+
+app.use(cors())
+
+app.use(express.json())
+
+
+
+app.use('/', welcomeRouter)
 
 app.use('/', usersRouter);
-app.use('/', messagesRouter);
+
+app.use('/', messagesRouter)
+
+
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+
+    console.log(`Servidor rodando na porta ${PORT}`)
+
+})
